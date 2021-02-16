@@ -4,23 +4,17 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
     </div>
-    <router-view/>
+    <router-view />
   </div>
 </template>
 <script>
-
-
 export default {
   beforeMount() {
     this.$store.dispatch("fetchEvents");
   },
-  created(){
-    this.$store.dispatch('fetchEvents2')
-  }
 };
 </script>
 
 <style lang="scss">
-
-      @import "./scss/main";
+@import "./scss/main";
 </style>
