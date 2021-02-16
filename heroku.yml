@@ -2,4 +2,4 @@ build:
   docker:
     web: ./Dockerfile
 run:
-  web: https-server dist/
+  web: nginx -g daemon off
