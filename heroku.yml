@@ -4,4 +4,4 @@ build:
     api: ./backend/Dockerfile
 run:
   web: http-server dist
-  api: node index.js
+  api: npm start
