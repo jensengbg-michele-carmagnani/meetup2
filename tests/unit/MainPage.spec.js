@@ -3,74 +3,35 @@ import MainPage from "@/components/MainPage.vue";
 import Event from "@/components/Event.vue";
 import Foot from "@/components/Foot.vue";
 import Home from "@/views/Home.vue";
-import store from "@/store";
 
+import index from "@/store/index.js";
 import Vuex from "vuex";
+import Vue from "vue";
 
-const localVue = createLocalVue();
-localVue.use(Vuex);
-
-// const store = new Vuex.Store({
-//   state: {
-//     events: {
-//       name: "Vasco Rossi",
-//       location: "verona",
-//       date: "Nov 11",
-//       timeIn: "20",
-//       timeOut: "23",
-//       tickets: 0,
-//       price: "150€",
-//       ticketsSold: 200,
-//       id: 1,
-//     },
-//     getters: {
-//       getEvents() {
-//         return this.$store.getters.events;
-//       },
-//     },
-//   },
-// });
+Vue.use(Vuex);
+const store = new Vuex.Store({index});
 
 describe("MainPage.vue", () => {
-  it("should renders an data of the event using a real Vuex getter", () => {
-    const wrapper = mount(MainPage, {
-      mocks: {
-        $store: {
-          state: {
-            name: "Vasco Rossi",
-            location: "verona",
-            date: "Nov 11",
-            timeIn: "20",
-            timeOut: "23",
-            tickets: 0,
-            price: "150€",
-            ticketsSold: 200,
-            id: 1,
-          },
-          getters: {
-            events: "Vasco Rossi",
-          },
+  it("should find a title of the event ", () => {
+    const wrapper = mount(Event, {
+      propsData: {
+        event: {
+          name: " Vasco Rossi",
         },
       },
     });
-
-    const eventName = wrapper
-      .findComponent(Event)
-      .find(".name")
-      .text();
+    const eventName = wrapper.find(".name").text();
     console.log(eventName);
     expect(eventName).toBe("Vasco Rossi");
-
-    // expect(event.exists()).toBe(true);
   });
-  // it("should render a footer component", () => {
-  //   const wrapper = mount(Home, {
-  //     store,
-  //     localVue,
-  //   });
-  //   const footer = wrapper.findComponent(Foot);
-  //   expect(footer.exists()).toBe(true);
-  // });
+  it("should render a footer component", () => {
+    const wrapper = mount(Home, {
+      store,
+      localVue,
+    });
+    const footer = wrapper.findComponent(Foot);
+    expect(footer.exists()).toBe(true);
+  });
   // it("should render the event using a real Vuex getter", () => {
   //   const wrapper = mount(MainPage, {
   //     store,
