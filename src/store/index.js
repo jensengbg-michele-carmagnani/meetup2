@@ -12,8 +12,8 @@ export default new Vuex.Store({
     events: Array,
   },
   mutations: {
-    storeEvents(state, events) {
-      state.envetsArray = events;
+    storeEvents(state, data) {
+      state.events = data;
     },
   },
   actions: {

@@ -14,9 +14,7 @@
         </section>
       </nav>
     </header>
-    <main class="main">
-      <MainPage />
-    </main>
+    <MainPage />
     <Foot />
   </div>
 </template>
@@ -31,8 +29,8 @@ export default {
     MainPage,
     Foot,
   },
-  props:{
-    events:Array
-  }
+  props: {
+    events: Array,
+  },
 };
 </script>
