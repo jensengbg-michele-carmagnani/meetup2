@@ -3,7 +3,7 @@
     <h2 class="title">Eventpage</h2>
     <Event
       class="events-section"
-      v-for="(event, index) in getEvents"
+      v-for="(event, index) in getEvents.data.events"
       :key="index"
       :event="event"
     />
@@ -17,15 +17,10 @@ export default {
   components: {
     Event,
   },
-  props: {
-    events: Array,
-  },
-  data() {
-    return {};
-  },
+ 
   computed:{
     getEvents(){
-      return this.$store.state.events
+       return this.$store.getters.events 
     }
   }
 };

@@ -15,7 +15,7 @@
       </nav>
     </header>
     <MainPage />
-    <Foot />
+    <Foot/>
   </div>
 </template>
 
