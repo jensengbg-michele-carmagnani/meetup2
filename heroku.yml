@@ -1,7 +1,12 @@
+setup:
+  addons:
+    - plan: heroku-lowdb
+      as: db
 build:
   docker:
     web: ./Dockerfile
     api: ./backend/Dockerfile
+
 run:
   web: http-server dist
   api: npm start
